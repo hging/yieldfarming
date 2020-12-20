@@ -3,34 +3,9 @@ import Fuse from 'fuse.js';
 
 const searchKeywords = [
    {
-        title: "$BASED sCRV",
-        link: "/based/scrv",
-        tags: ["based", "$based", "scrv", "scurve"]
-    },
-    {
-        title: "$BASED sUSD",
-        link: "/based/scrv",
-        tags: ["based", "$based", "scrv", "scurve", "susd"]
-    },
-    {
-        title: "Funzone",
-        link: "/funzone",
-        tags: ["shrimp", "tendies", "yam", "$BASED"]
-    },
-    {
-        title: "Shrimp YFI",
-        link: "/shrimp/yfi",
-        tags: ["shrimp", "yfi"]
-    },
-    {
-        title: "Shrimp Taco",
-        link: "/shrimp/taco",
-        tags: ["shrimp", "taco"]
-    },
-    {
-        title: "Y Vaults",
-        link : "/yearn/yvault",
-        tags : ["yearn", "vault", "yvault", "andre", "cronje", "yusd"]
+        title: "Solidus",
+        link: "/solidus",
+        tags: ["busd", "bnb", "usdt", "usdc"]
     }
 ]
 

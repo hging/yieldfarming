@@ -1,7 +1,7 @@
 async function init_ethers() {
   const App = {}
 
-  const ETHEREUM_NODE_URL = 'aHR0cHM6Ly9tYWlubmV0LmluZnVyYS5pby92My9mN2Q1YjkwMzY3MzY0YmFkYWNhZDI5Njg5OWYyMTMxYQ=='
+  const ETHEREUM_NODE_URL = 'aHR0cHM6Ly9ic2MtZGF0YXNlZWQuYmluYW5jZS5vcmcv'
 
   let isMetaMaskInstalled = true
 
@@ -23,7 +23,7 @@ async function init_ethers() {
   }
   // If no injected web3 instance is detected, fall back to backup node
   else {
-    App.provider = new ethers.providers.JsonRpcProvider(atob(ETHEREUM_NODE_URL))
+    App.provider = new ethers.providers.JsonRpcProvider(atob(ETHEREUM_NODE_URL), 56)
     isMetaMaskInstalled = false
     _print(
       "You don't have MetaMask installed! Falling back to backup node...\n (will likely to fail. Please install MetaMask extension).\n"
@@ -220,6 +220,17 @@ const lookUpPrices = async function(id_array) {
     url: 'https://api.coingecko.com/api/v3/simple/price?ids=' + ids + '&vs_currencies=usd',
     type: 'GET',
   })
+}
+
+const lookUpPricesFromPancake = async function(contract, App) {
+  const chainId = "0x38";
+  // const tokenAddress = '0x6B175474E89094C44Da98b954EedeAC495271d0F' // must be checksummed
+  // const decimals = 18
+  const Token = await window.swapSdk.Fetcher.fetchTokenData(chainId, contract, App.provider);
+  const BUSD = await window.swapSdk.Fetcher.fetchTokenData(chainId, "0xe9e7cea3dedca5984780bafc599bd69add087d56", App.provider);
+  const pair = await window.swapSdk.Fetcher.fetchPairData(Token, BUSD, App.provider);
+  const route = new window.swapSdk.Route([pair], BUSD);
+  return route.midPrice.invert().toSignificant(6) // 201.306
 }
 
 const lookUpPricesHistorical = async function(id, from, to) {
