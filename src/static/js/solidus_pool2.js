@@ -18,15 +18,15 @@ async function main() {
     // const CURVE_SUSD_POOL = new ethers.Contract(CURVE_SUSD_POOL_ADDR, CURVE_SUSD_POOL_ABI, App.provider);
     // const SYNTH_crvPlain3andSUSD_POOL = new ethers.Contract(SYNTH_crvPlain3andSUSD_STAKING_POOL_ADDR, SYNTH_crvPlain3andSUSD_STAKING_POOL_ABI, App.provider);
     // const crvPlain3andSUSD_TOKEN_CONTRACT = new ethers.Contract(sCRV_TOKEN_ADDR, ERC20_ABI, App.provider);
-    const BUSD_TOKEN = new ethers.Contract("0xe9e7cea3dedca5984780bafc599bd69add087d56", ERC20_ABI, App.provider);
-    const SOC_TOKEN = new ethers.Contract("0x0bD67D358636Fd7B0597724Aa4F20BEEDBf3073A", ERC20_ABI, App.provider);
-    const SOS_TOKEN = new ethers.Contract("0xedf5d2a561e8a3cb5a846fbce24d2ccd88f50075", ERC20_ABI, App.provider);
+    const BUSD_TOKEN = await new ethers.Contract("0xe9e7cea3dedca5984780bafc599bd69add087d56", ERC20_ABI, App.provider);
+    const SOC_TOKEN = await new ethers.Contract("0x0bD67D358636Fd7B0597724Aa4F20BEEDBf3073A", ERC20_ABI, App.provider);
+    const SOS_TOKEN = await new ethers.Contract("0xedf5d2a561e8a3cb5a846fbce24d2ccd88f50075", ERC20_ABI, App.provider);
 
-    // const SOC_LP_TOKEN = new ethers.Contract("0x7fef46b152365f1c546aab5c26d38b54b82cd3b9", LP_ABI, App.provider);
-    // const SOS_LP_TOKEN = new ethers.Contract("0x80be2826934056b32aa344871a8b14291dac2782", LP_ABI, App.provider);
+    // const SOC_LP_TOKEN = await new ethers.Contract("0x7fef46b152365f1c546aab5c26d38b54b82cd3b9", LP_ABI, App.provider);
+    // const SOS_LP_TOKEN = await new ethers.Contract("0x80be2826934056b32aa344871a8b14291dac2782", LP_ABI, App.provider);
 
-    const SOLIDUS_SOC_BUSD_POOL = new ethers.Contract("0x615ADfCa9bEDF0A42211ef67E744A3F84D010dA2", SOC_BUSD_POOL_ABI, App.provider);
-    const SOLIDUS_SOS_BUSD_POOL = new ethers.Contract("0xbff1d8efa5496d056fbda8aa18e38744d9f76d84", SOS_BUSD_POOL_ABI, App.provider);
+    const SOLIDUS_SOC_BUSD_POOL = await new ethers.Contract("0x615ADfCa9bEDF0A42211ef67E744A3F84D010dA2", SOC_BUSD_POOL_ABI, App.provider);
+    const SOLIDUS_SOS_BUSD_POOL = await new ethers.Contract("0xbff1d8efa5496d056fbda8aa18e38744d9f76d84", SOS_BUSD_POOL_ABI, App.provider);
   
     // // SYNTH Staking pool
     // const rawStakedCRVAmount = await SYNTH_crvPlain3andSUSD_POOL.balanceOf(App.YOUR_ADDRESS);

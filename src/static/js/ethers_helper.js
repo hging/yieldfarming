@@ -15,11 +15,11 @@ async function init_ethers() {
       // User denied account access...
       console.error('User denied account access')
     }
-    App.provider = new ethers.providers.Web3Provider(window.ethereum)
+    App.provider = new ethers.providers.Web3Provider(window.ethereum, 56)
   }
   // Legacy dapp browsers...
   else if (window.web3) {
-    App.provider = new ethers.providers.Web3Provider(window.web3.currentProvider)
+    App.provider = new ethers.providers.Web3Provider(window.web3.currentProvider, 56)
   }
   // If no injected web3 instance is detected, fall back to backup node
   else {
@@ -226,10 +226,10 @@ const lookUpPricesFromPancake = async function(contract, App) {
   const chainId = "0x38";
   // const tokenAddress = '0x6B175474E89094C44Da98b954EedeAC495271d0F' // must be checksummed
   // const decimals = 18
-  const Token = await window.swapSdk.Fetcher.fetchTokenData(chainId, contract, App.provider);
-  const BUSD = await window.swapSdk.Fetcher.fetchTokenData(chainId, "0xe9e7cea3dedca5984780bafc599bd69add087d56", App.provider);
-  const pair = await window.swapSdk.Fetcher.fetchPairData(Token, BUSD, App.provider);
-  const route = new window.swapSdk.Route([pair], BUSD);
+  const Token = await Fetcher.fetchTokenData(chainId, contract, App.provider);
+  const BUSD = await Fetcher.fetchTokenData(chainId, "0xe9e7cea3dedca5984780bafc599bd69add087d56", App.provider);
+  const pair = await Fetcher.fetchPairData(Token, BUSD, App.provider);
+  const route = new Route([pair], BUSD);
   return route.midPrice.invert().toSignificant(6) // 201.306
 }
 

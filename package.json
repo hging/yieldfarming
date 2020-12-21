@@ -63,7 +63,8 @@
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
-    "picturefill": "^3.0.3"
+    "picturefill": "^3.0.3",
+    "regenerator": "^0.14.7"
   },
   "browserslist": [
     "last 1 version",
