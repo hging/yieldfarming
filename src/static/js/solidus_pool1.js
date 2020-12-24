@@ -84,8 +84,8 @@ async function main() {
     _print("========= WBNB REWARD ==========")
     const wbnbHourlyROI = (wbnbRewardPerToken * 3600 * tokenPrice / (totalWBNBAmount * bnbPrice)) * 100
     _print(`Hourly estimate   : ${toFixed(wbnbRewardPerToken * 3600, 2)} SOC`)
-    _print(`Daily estimate    : ${toFixed(wbnbRewardPerToken * 3600 * 7, 2)} SOC`)
-    _print(`Weekly estimate   : ${toFixed(wbnbRewardPerToken * 3600 * 7 * 7, 2)} SOC`)
+    _print(`Daily estimate    : ${toFixed(wbnbRewardPerToken * 3600 * 24, 2)} SOC`)
+    _print(`Weekly estimate   : ${toFixed(wbnbRewardPerToken * 3600 * 24 * 7, 2)} SOC`)
 
     _print(`Daily ROI in USD  : ${toFixed(wbnbHourlyROI * 24, 4)}%`)
     _print(`Weekly ROI in USD : ${toFixed(wbnbHourlyROI * 24 * 7, 4)}%`)

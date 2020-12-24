@@ -78,8 +78,8 @@ async function main() {
     _print("========= SOC-LP REWARD ==========")
     const socLpHourlyROI = (socLpPerToken * 3600 * sosPrice / (busdInSOCAmount + socAmount * socPrice)) * 100
     _print(`Hourly estimate   : ${toFixed(socLpPerToken * 3600, 2)} SOS`)
-    _print(`Daily estimate    : ${toFixed(socLpPerToken * 3600 * 7, 2)} SOS`)
-    _print(`Weekly estimate   : ${toFixed(socLpPerToken * 3600 * 7 * 7, 2)} SOS`)
+    _print(`Daily estimate    : ${toFixed(socLpPerToken * 3600 * 24, 2)} SOS`)
+    _print(`Weekly estimate   : ${toFixed(socLpPerToken * 3600 * 24 * 7, 2)} SOS`)
 
     _print(`Daily ROI in USD  : ${toFixed(socLpHourlyROI * 24, 4)}%`)
     _print(`Weekly ROI in USD : ${toFixed(socLpHourlyROI * 24 * 7, 4)}%`)
