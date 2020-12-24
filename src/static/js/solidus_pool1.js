@@ -62,11 +62,11 @@ async function main() {
     // const dai_weekly_reward = await get_synth_weekly_rewards(SOLIDUS_DAI_POOL);
     // const usdc_weekly_reward = await get_synth_weekly_rewards(SOLIDUS_USDC_POOL);
 
-    const wbnbRewardPerToken = (await SOLIDUS_WBNB_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_WBNB_POOL.rewardRate() / 1e18 : 0;
-    const busdRewardPerToken = (await SOLIDUS_BUSD_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_BUSD_POOL.rewardRate() / 1e18 : 0;
-    const usdtRewardPerToken = (await SOLIDUS_USDT_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_USDT_POOL.rewardRate() / 1e18 : 0;
-    const daiRewardPerToken = (await SOLIDUS_DAI_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_DAI_POOL.rewardRate() / 1e18 : 0;
-    const usdcRewardPerToken = (await SOLIDUS_USDC_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_USDC_POOL.rewardRate() / 1e18 : 0;
+    const wbnbRewardPerToken = (await SOLIDUS_WBNB_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_WBNB_POOL.rewardRate() / 1e18 : 0;
+    const busdRewardPerToken = (await SOLIDUS_BUSD_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_BUSD_POOL.rewardRate() / 1e18 : 0;
+    const usdtRewardPerToken = (await SOLIDUS_USDT_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_USDT_POOL.rewardRate() / 1e18 : 0;
+    const daiRewardPerToken = (await SOLIDUS_DAI_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_DAI_POOL.rewardRate() / 1e18 : 0;
+    const usdcRewardPerToken = (await SOLIDUS_USDC_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_USDC_POOL.rewardRate() / 1e18 : 0;
 
 
     _print("Finished reading smart contracts... Looking up prices... \n")

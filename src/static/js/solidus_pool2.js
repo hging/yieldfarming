@@ -62,10 +62,8 @@ async function main() {
     // const dai_weekly_reward = await get_synth_weekly_rewards(SOLIDUS_DAI_POOL);
     // const usdc_weekly_reward = await get_synth_weekly_rewards(SOLIDUS_USDC_POOL);
 
-    const socLpPerToken = (await SOLIDUS_SOC_BUSD_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_SOC_BUSD_POOL.rewardRate() / 1e18 : 0;
-    const sosLpPerToken = (await SOLIDUS_SOS_BUSD_POOL.periodFinish) * 100 >= Date.now ? await SOLIDUS_SOS_BUSD_POOL.rewardRate() / 1e18 : 0;
-
-
+    const socLpPerToken = (await SOLIDUS_SOC_BUSD_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_SOC_BUSD_POOL.rewardRate() / 1e18 : 0;
+    const sosLpPerToken = (await SOLIDUS_SOS_BUSD_POOL.periodFinish()) * 1000 >= Date.now() ? await SOLIDUS_SOS_BUSD_POOL.rewardRate() / 1e18 : 0;
     _print("Finished reading smart contracts... Looking up prices... \n")
 
     // CoinGecko price lookup
